@@ -1,25 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+import GameSection from './components/game_section';
+import get_unique_sudoku_and_solve from './components/sudoku_generator';
 
-function App() {
+function Game() {
+  const [gameMode, changeGameMode] = useState(undefined);
+  const [gameArray, setGameArray] = useState([]);
+  const [cellSelected, setCellSelected] = useState(-1);
+  
+  let [initArray, solvedArray] = get_unique_sudoku_and_solve(4);
+  // useEffect(() =>{
+  //   let [initArray, solvedArray] = get_unique_sudoku_and_solve(3);
+  //   setGameArray(initArray);
+  // }, []
+  // )
+
+  // expert   : 0;
+  // hard     : 1;
+  // Normal   : 2;
+  // easy     : 3;
+  // very easy: 4;
+
+  console.log(initArray)
+  console.log(solvedArray)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="Game" >
+      <GameSection gameArray={initArray}/>
+      
     </div>
   );
 }
 
-export default App;
+export default Game;
