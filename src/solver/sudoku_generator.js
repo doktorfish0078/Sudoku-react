@@ -241,7 +241,7 @@ function getGridInit() {
 
     let puzzle = makeItPuzzle(solution, difficulty);
 
-    return [string_nums_to_array(puzzle), string_nums_to_array(solution)];
+    return [puzzle, solution];
   }
 
   export default get_unique_sudoku_and_solve;

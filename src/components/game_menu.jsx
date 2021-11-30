@@ -1,22 +1,23 @@
+import { Link } from 'react-router-dom';
 import './game_menu.css'
 
 
-function GameModeBtn(props){
+function GameModeBtn({setGameMode, text, lvl}){
     return(
-        <div className="game_mode_btn" onClick={() => props.changeGameMode(props.lvl)}>
-            {props.text}
-        </div>
+        <Link to={`/game?lvl=${lvl}`} className="game_mode_btn">
+            {text}
+        </Link>
     );
 }
 
-function GameMenu(props){
+function GameMenu({setGameMode}){
     return(
         <div className="game_menu">
             <h1 className='title'>Sudoku</h1>
-            <GameModeBtn text='Easy' lvl={0} changeGameMode={props.changeGameMode}/>
-            <GameModeBtn text='Medium' lvl={1} changeGameMode={props.changeGameMode}/>
-            <GameModeBtn text='Hard' lvl={2} changeGameMode={props.changeGameMode}/>
-            <GameModeBtn text='Expert' lvl={3} changeGameMode={props.changeGameMode}/>
+            <GameModeBtn text='Easy' lvl={4}/>
+            <GameModeBtn text='Medium' lvl={3}/>
+            <GameModeBtn text='Hard' lvl={2}/>
+            <GameModeBtn text='Expert' lvl={1}/>
         </div>
     );
 }

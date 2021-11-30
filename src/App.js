@@ -1,35 +1,25 @@
+import React from 'react';
 import './App.css';
-import { useState, useEffect } from 'react';
-import GameSection from './components/game_section';
-import get_unique_sudoku_and_solve from './components/sudoku_generator';
 
-function Game() {
-  const [gameMode, changeGameMode] = useState(undefined);
-  const [gameArray, setGameArray] = useState([]);
-  const [cellSelected, setCellSelected] = useState(-1);
-  
-  let [initArray, solvedArray] = get_unique_sudoku_and_solve(4);
-  // useEffect(() =>{
-  //   let [initArray, solvedArray] = get_unique_sudoku_and_solve(3);
-  //   setGameArray(initArray);
-  // }, []
-  // )
+import Game from './components/game';
+import GameMenu from './components/game_menu';
 
-  // expert   : 0;
-  // hard     : 1;
-  // Normal   : 2;
-  // easy     : 3;
-  // very easy: 4;
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 
-  console.log(initArray)
-  console.log(solvedArray)
-
-  return (
-    <div className="Game" >
-      <GameSection gameArray={initArray}/>
-      
-    </div>
-  );
+const App = () => {
+  return(
+    <Router>
+      <Routes>
+        <Route path="/" element={<GameMenu/>}/>
+        <Route path="/game" element={<Game/>}/>
+      </Routes>
+    </Router>
+    
+  )
 }
 
-export default Game;
+export default App;

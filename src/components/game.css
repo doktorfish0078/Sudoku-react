@@ -1,0 +1,28 @@
+.Game {
+    /* margin-right: auto;
+    margin-left: auto; */
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game_header {
+    width: 36rem;
+    display: flex;
+    justify-content: end;
+    margin-bottom: 15px;
+}
+
+.btn_go_to_menu {
+    font-size: 22px;
+    padding: 10px;
+    border-radius: 7px;
+    background-color: rgb(26, 116, 78);
+}
+
+.game_section {
+    display: flex;
+    flex-direction: row;
+}
